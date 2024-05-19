@@ -1,17 +1,21 @@
-import express, { NextFunction, Request, Response } from 'express'
-import CreateHttpError ,{HttpError} from 'http-errors'
-import { config } from '../config/config'
+import express from 'express'
+import CreateHttpError from 'http-errors'
+
 import globalErrorHandler from './middlewares/globalErrorHandler'
+import userRouter from './users/userRouters'
 
 const app = express()
 
 app.get('/', (req, res, next) => {
     const error = CreateHttpError(500, "something went wrong")
     throw error;
-    res.json({'message':'Hello guys'})
+    res.json({'message':'Hello guys'}) 
 })
 
-app.use(globalErrorHandler)
+app.use('/api/users', userRouter);
+
+
+app.use(globalErrorHandler) //middlerwares
 
 
 

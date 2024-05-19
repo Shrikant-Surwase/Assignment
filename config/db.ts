@@ -5,6 +5,7 @@ import { config } from "./config";
 
 const connectDb = async() => {
     try {
+        //resistering the entry brfore calling await function
          mongoose.connection.on('connected', () => {
            console.log('Database connected succesfully !!');
            
