@@ -2,7 +2,8 @@ import { config as conf } from "dotenv";  //i have used as which is alis for the
 conf();
  const _config = {
      port: process.env.PORT,
-     mongodab_string: process.env.MONGO_URL
+     mongodab_string: process.env.MONGO_URL,
+     env: process.env.NODE_ENV
      
 
 }
