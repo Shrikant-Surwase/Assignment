@@ -5,5 +5,5 @@ import {userRrgistration} from './userController';
 const userRouter = express.Router();
 
 userRouter.post('/register', userRrgistration)
-
+userRouter.post('/login')
 export default userRouter;
