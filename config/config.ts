@@ -4,7 +4,8 @@ conf();
  const _config = { // i have used _config instead of config bcoz _config is used for security purpose
      port: process.env.PORT,
      mongodab_string: process.env.MONGO_URL,
-     env: process.env.NODE_ENV
+     env: process.env.NODE_ENV,
+     jwt_secrete:process.env.JWT_SECRETE
      
 
 }
