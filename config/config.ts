@@ -1,4 +1,4 @@
-import { config as conf } from "dotenv";  //i have used as which is alis for the same name in the code
+import { config as conf } from "dotenv";  //i have used as conf for  alias for the same name in the code
 conf();
 
  const _config = { // i have used _config instead of config bcoz _config is used for security purpose

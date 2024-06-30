@@ -7,7 +7,7 @@ import { sign } from "jsonwebtoken";
 import { config } from "../../config/config";
 const userRrgistration = async (req: Request,res: Response,next: NextFunction) => {
     //validation
-    const { name, email, password } = req.body; //destructured the data
+    const { name, email, password, date } = req.body; //destructured the data
     //1) checking is any quantity is typed or not
     if (!name || !email || !password) {
         const error = createHttpError(400, "All fields are required");
@@ -29,6 +29,7 @@ const userRrgistration = async (req: Request,res: Response,next: NextFunction) =
     try {
         newUser = await userModel.create({
             name,
+            date,
             email,
             password: hashedPassword,
         });
@@ -66,7 +67,7 @@ const userLogin = async(req:Request,res:Response,next:NextFunction) => {
             return next(createHttpError(400,"Password not matched!!"))
         }
         //create token for access
-        const token = await sign({ sub: user._id }, config.jwt_secrete as string, { expiresIn: '7d', algorithm: 'HS256' });
+        const token = await sign({ sub: user._id }, config.jwt_secrete as string, { expiresIn: '24h', algorithm: 'HS256' });
         res.status(200).json({ accessToken: token });
 
     } catch (error) {
@@ -74,5 +75,17 @@ const userLogin = async(req:Request,res:Response,next:NextFunction) => {
     }
 } 
 
+const getUser = async(req: Request, res: Response, next: NextFunction) => {
+    try {
+        const users = await userModel.find();
+        //users = users.json();
+        console.log(users)
+       return res.send(users)
+        
+    } catch (error) {
+        return next(createHttpError(500,"user details is not found"))
+    }
+}
 
-export { userRrgistration,userLogin };
+
+export { userRrgistration, userLogin, getUser };
