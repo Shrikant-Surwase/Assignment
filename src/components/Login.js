@@ -40,7 +40,7 @@ export default function Signup() {
   return (
     <div id='container'>
        
-       <h1 className='text-2xl mb-12 font-serif'>Login1</h1>
+       <h1 className='text-2xl mb-12 font-serif'>Login</h1>
         <form>
             
             
