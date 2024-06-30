@@ -1,12 +1,12 @@
 
-.navbar{
+#navbar{
     height: 12vh;
     width: 100%;
     display: flex;
     align-items: flex-end;
   
 }
-.nav-list{
+#nav-list{
     height: 12vh;
     display: flex;
     align-items: flex-end;

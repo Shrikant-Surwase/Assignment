@@ -1,17 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {authActions} from '../store'
 export default function Header() {
-    const isLogin = useSelector((state) => state.isLoggedIn);
+  const isLogin = useSelector((state) => state.isLoggedIn);
+  const dispatch = useDispatch();
+
   return (
-    <div className='navbar'>
-        <h1><Link to="/home">MernAuth</Link></h1>
-        <ul className='nav-list'>
+    <div id='navbar'>
+       
+        <ul id='nav-list'>
            {
             isLogin && <>
              
-            <li className='list-item'><Link to='/home'>logout</Link></li>
+            <li className='list-item' onClick={()=>{dispatch(authActions.logout())}}><Link to='/'>logout</Link></li>
             </>
            }
            {

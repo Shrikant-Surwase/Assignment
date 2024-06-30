@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom'
 export default function Signup() {
   const dispatch = useDispatch();
   const history = useNavigate();
-  const [name,setName] = useState("")
+  //const [name,setName] = useState("")
     const [input, setInput] = useState({email:"",password:""});
     const handleChange = (e)=>{
          setInput((prev)=>({
@@ -17,7 +17,7 @@ export default function Signup() {
     
     }
     const sendRRequest = async() =>{
-      const res = await axios.post("http://localhost:5000/api/login",{
+      const res = await axios.post("http://localhost:5000/login",{
        
         email:input.email,
         password:input.password
@@ -38,9 +38,9 @@ export default function Signup() {
        
     }
   return (
-    <div className='container'>
+    <div id='container'>
        
-       <h1>Login</h1>
+       <h1 className='text-2xl mb-12 font-serif'>Login</h1>
         <form>
             
             
@@ -52,7 +52,7 @@ export default function Signup() {
             <input name='password' type="password" value={input.password} onChange={handleChange} placeholder="Enter the password" />
            
         </form>
-        <button type='submit' onClick={formSubmit}>Signup</button>
+        <button type='submit' onClick={formSubmit} className="hover:rounded-full">Login</button>
   
     </div>
   )

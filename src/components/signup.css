@@ -7,13 +7,14 @@ input{
     box-sizing: border-box;
     border-radius: 5%;
 }
-.container{
-    height: 80vh;
+#container{
+    height: 100vh;
     text-align: center;
     background-color: rgb(184, 167, 167);
     margin:60px 80px;
     border-radius: 10%;
 }
+
 form{
   margin: 10px 40px;
 }
